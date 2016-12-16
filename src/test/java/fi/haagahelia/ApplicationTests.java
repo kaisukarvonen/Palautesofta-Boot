@@ -23,8 +23,6 @@ import fi.haagahelia.models.Kysymys;
 import fi.haagahelia.repositories.KysymysRepository;
 
 @RunWith(SpringRunner.class)
-@TestPropertySource(properties = { "spring.jmx.enabled:true",
-"spring.datasource.jmx-enabled:true" })
 @WebAppConfiguration
 @SpringBootTest
 public class ApplicationTests {
@@ -34,19 +32,30 @@ public class ApplicationTests {
 
     private MockMvc mockmvc;
     
-    /*private Kysymys k;
-    
     @Autowired
-    private KysymysRepository kysrepo;*/
+    private KysymysRepository kysrepo;
 
     @Before
     public void setup() {
         this.mockmvc = MockMvcBuilders.webAppContextSetup(this.context).build();
     }
 	
-	@Test
-	public void testIndex() throws Exception {
-		this.mockmvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
-	}
+    @Test
+    public void testIndex() throws Exception {
+	this.mockmvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
+    }
+	
+    @Test
+    public void lisaaKysymys() {
+		Kysymys k = new Kysymys();
+		k.setId(44);
+		k.setKyselyid(3);
+		k.setNimi("Testikysymys?");
+		k.setTyyppiId(3);
+		k.setVastausvaihtoehdot("1,2,3");
+		
+		kysrepo.save(k);
+		assertNotNull(k); 
+    }
 
 }
