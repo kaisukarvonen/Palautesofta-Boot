@@ -1,0 +1,70 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+    <head>
+        <title>Palautesofta</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="../myfunctions.js"></script>
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+    </head>
+<style>
+body {
+	margin:60px 0 0 90px;
+}
+</style>
+<body class="w3-light-grey">
+ 
+<div class="w3-content w3-margin-top" style="max-width:1700px;">
+ <div class="w3-twothird">
+    <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+		
+	
+	  <a href="kyselynsisalto.json">Kyselyt json-datana</a><br/>
+	<a href="kysymystyypit.json">Kysymystyypit</a><br/><br/>
+
+<!-- getJSON(.json) -url ei näytä dataa lähteestä proto.../admin/.json, miten käyttää jsonia joka on admin-kirjautumisen takana -->
+
+ 	<h4><div id="kysymys1">Minkä arvosanan antaisit kurssista?</div></h4>
+	  <input type="radio" name="arvosana" value="hyvä" /> Hyvä<br/>
+	  <input type="radio" name="arvosana" value="keskiverto" /> Keskiverto<br/>
+	  <input type="radio" name="arvosana" value="huono" /> Huono
+      <br/><br/>
+      
+      <h4><div id="kysymys2">Donald?</div></h4>
+      <input type="text" id="kysymys2_arvo"/>
+      <br/><br/>
+      <input type="button" id="lisaaMontaVastausta" value="Tallenna vastaukset"/>
+      
+      <div id="ajaxMessage"></div>
+      
+      <br/><br/>
+      <!--  
+      <h4>Lisää uusi kysymys</h4>
+      <b>Tyyppi:</b><br>
+      <input type="radio" name="kysymystyyppi" value="avoin"> Avoin kysymys<br>
+	  <input type="radio" name="kysymystyyppi" value="radiobutton"> Radiobutton<br>
+	  <input type="radio" name="kysymystyyppi" value="skaala"> Skaala<br>
+	  Kysymys: <input type="text" id="uusi_kysymys1"/><br>
+	  <input type="button" id="lisaaKysymys" value="Lisää kysymys"/>
+	  
+	  <a href="login">Admin</a>-->
+	  <button id="paivita">Päivitä kysymykset</button><br/><br/>
+	  <div class="kysymykset"></div>
+	  
+	  
+ 	</div>
+ </div>
+</div>
+
+ 
+<script>
+
+
+
+
+</script>
+ 
+</body>
+</html>
