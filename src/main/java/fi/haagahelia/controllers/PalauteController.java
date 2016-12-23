@@ -69,21 +69,21 @@ public class PalauteController {
     }
     
     
-    @RequestMapping(value="lisaaKysymys", method=RequestMethod.GET)
+    @RequestMapping(value="lisaaKysymys", method=RequestMethod.POST)
     @ResponseBody
     public Kysymys lisaaKysymys(@RequestBody Kysymys k) {
     	return kysrepo.save(k);
     }
     
     
-    @RequestMapping(value="/poista/{kysymys_id}", method=RequestMethod.GET)
+    @RequestMapping(value="kysymykset/{kysymys_id}", method=RequestMethod.DELETE)
     public String poistaKysymys(@PathVariable("kysymys_id") int kysId) {
     	kysrepo.removeById(kysId);
     	return "redirect:/index";
     }
     
     
-    @RequestMapping(value="muokkaa/{kysymys_id}/{kysymys_arvo}", method=RequestMethod.GET)
+    @RequestMapping(value="kysymykset/{kysymys_id}/{kysymys_arvo}", method=RequestMethod.PUT)
     public String muokkaaKysymysta(@PathVariable("kysymys_id") int kysymysId, @PathVariable("kysymys_arvo") String kysymysArvo) {
     	kysrepo.updateKysymysNimi(kysymysId, kysymysArvo);
     	return "redirect:/index";
